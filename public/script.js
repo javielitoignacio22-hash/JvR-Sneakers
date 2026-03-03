@@ -21,13 +21,13 @@ const productos = [
   },
   {
     name: "Yeezy Boost 350",
-    price: "$250",
+    price: 250,
     imagen: "https://static.nike.com/a/images/t_PDP_864_v1/jordan-1-retro-high-og-shoes.png"
    
   },
   {
     name: "Nike Dunk Low Panda",
-    price: "$150",
+    price: 180,
     imagen: "https://static.nike.com/a/images/t_PDP_864_v1/jordan-1-retro-high-og-shoes.png"
   
   }
