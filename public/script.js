@@ -1,4 +1,4 @@
-const sneakers = [
+const productos = [
   {
     title: "Nike Air Force 1 White",
     price: 120,
@@ -109,7 +109,7 @@ const contador = document.getElementById("contador");
 const totalHTML = document.getElementById("total");
 
 function mostrarProductos() {
-  sneakers.forEach((p, index) => {
+  productos.forEach((p, index) => {
     contenedor.innerHTML += `
       <div class="card">
         <img src="${p.imagen}">
@@ -124,7 +124,7 @@ function mostrarProductos() {
 }
 
 function agregarCarrito(index) {
-  carrito.push(sneakers[index]);
+  carrito.push(productos[index]);
   actualizarCarrito();
 }
 
