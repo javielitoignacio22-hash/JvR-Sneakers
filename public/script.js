@@ -1,5 +1,5 @@
 const productos = [
-    { nombre: "Nike Air Force 1", precio: 120, imagen: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,q_auto:eco/air-force-1-07-shoes-WrLlWX.png" },
+    { nombre: "Nike Air Force 1", precio: 120, imagen: "https://citytenis.online/cdn/shop/files/air-force-1-big-kids-shoes-TlVXsf_8_1024x1024@2x.webp?v=1712421376" },
     { nombre: "Adidas Campus", precio: 95, imagen: "https://assets.adidas.com/images/w_600,f_auto,q_auto/campus-00s-shoes.jpg" },
     { nombre: "Jordan 1 Retro", precio: 180, imagen: "https://static.nike.com/a/images/t_PDP_864_v1/jordan-1-retro-high-og-shoes.png" },
     { nombre: "Puma Suede", precio: 85, imagen: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/352634/03/sv01/fnd/PNA/fmt/png" }
