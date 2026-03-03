@@ -1,149 +1,199 @@
-/* 1. SISTEMA DE DISEÑO MODERNIZADO */
 :root {
-  --bg-main: #050505;
-  --bg-card: rgba(255, 255, 255, 0.03); /* Transparencia para Glassmorphism */
-  --accent-gradient: linear-gradient(135deg, #00ff88 0%, #00bdff 100%);
-  --accent-glow: rgba(0, 255, 136, 0.3);
-  --text-primary: #f5f5f7;
-  --text-secondary: #86868b;
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --bg-main: #0a0a0a;
+    --bg-card: #151515;
+    --accent: #00ff88;
+    --accent-dark: #00d672;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 2. ESTILOS BASE */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  margin: 0;
-  padding: 40px 20px;
-  -webkit-font-smoothing: antialiased;
-  background-image: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #050505 80%); /* Gradiente de fondo sutil */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* 3. CONTENEDOR GRID (Más profesional que Flex en e-commerce) */
-.productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tarjetas más compactas */
-  gap: 24px; /* Espaciado más reducido */
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
+header {
+    text-align: center;
+    padding: 60px 20px 20px;
 }
 
-/* 4. TARJETAS DE PRODUCTO (Glassmorphism & Depth) */
+header h1 {
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+header h1 span {
+    color: var(--accent);
+}
+
+header p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Grid de Productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* Card de Producto */
 .card {
-  position: relative;
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
-  border-radius: 20px;
-  padding: 20px;
-  transition: var(--transition-smooth);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  max-width: 300px; /* Limita el ancho máximo de la tarjeta */
-  margin: 0 auto; /* Centra las tarjetas si hay pocas */
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 20px;
-  padding: 1px; /* Efecto de borde brillante */
-  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(0, 255, 136, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 136, 0.1);
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.1);
 }
 
-/* 5. AJUSTE DE IMÁGENES (Solución al problema de tamaño) */
-/* Contenedor para que la imagen no se escape y tenga zoom interno */
+/* Contenedor de Imagen (Arregla el tamaño) */
 .card-img-container {
-  width: 100%;
-  height: 180px; /* Altura fija para el contenedor de la imagen */
-  border-radius: 12px;
-  overflow: hidden; /* Recorta el zoom */
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.2); /* Fondo sutil para la imagen */
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 15px;
 }
 
 .card img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* Ajusta la imagen sin deformarla */
-  transition: var(--transition-smooth);
-  filter: grayscale(20%); /* Look minimalista */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Evita que la imagen se estire */
+    transition: var(--transition);
 }
 
 .card:hover img {
-  transform: scale(1.1); /* Zoom sutil y elegante al pasar el mouse */
-  filter: grayscale(0%);
+    transform: scale(1.1);
 }
 
-/* 6. TIPOGRAFÍA REFINADA */
 .card h3 {
-  font-size: 1.2rem; /* Ligeramente más pequeño */
-  font-weight: 600;
-  margin: 10px 0 5px;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
 }
 
 .card .precio {
-  font-size: 1.1rem;
-  color: #00ff88;
-  font-weight: 700;
-  margin-bottom: 15px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
-/* 7. BOTÓN CALL-TO-ACTION (Premium) */
-button {
-  background: var(--accent-gradient);
-  color: #000;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 0.85rem; /* Un poco más compacto */
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  box-shadow: 0 4px 15px var(--accent-glow);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  width: 100%; /* Botón ancho completo dentro de la tarjeta */
+.card button {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 25px var(--accent-glow);
-  filter: brightness(1.1);
+.card button:hover {
+    background: var(--accent-dark);
 }
 
-/* 8. CARRITO (Panel Lateral Estilo Dashboard) */
-#carrito {
-  background: rgba(10, 10, 10, 0.8);
-  border-left: 1px solid var(--border-glass);
-  padding: 30px;
-  position: fixed;
-  right: 0; top: 0; bottom: 0;
-  width: 350px;
-  backdrop-filter: blur(20px);
-  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-  z-index: 100;
+/* Sidebar Carrito */
+#carrito-container {
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 25px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    border: 1px solid var(--border);
+}
+
+.carrito-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.badge {
+    background: var(--accent);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+}
+
+.lista-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.btn-eliminar {
+    background: transparent;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.metodos-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-card { background: #333; color: white; border: none; padding: 12px; border-radius: 10px; cursor: pointer; }
+.btn-paypal { background: #0070ba; color: white; border: none; padding: 12px; border-radius: 10px; cursor: pointer; }
+
+@media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
 }
