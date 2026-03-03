@@ -24,10 +24,11 @@ body {
 /* 3. CONTENEDOR GRID (Más profesional que Flex en e-commerce) */
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tarjetas más compactas */
+  gap: 24px; /* Espaciado más reducido */
   max-width: 1200px;
   margin: 50px auto;
+  padding: 0 20px;
 }
 
 /* 4. TARJETAS DE PRODUCTO (Glassmorphism & Depth) */
@@ -37,19 +38,21 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-glass);
-  border-radius: 24px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 20px;
   transition: var(--transition-smooth);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 300px; /* Limita el ancho máximo de la tarjeta */
+  margin: 0 auto; /* Centra las tarjetas si hay pocas */
 }
 
 .card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 1px; /* Efecto de borde brillante */
   background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -60,63 +63,79 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(0, 255, 136, 0.4);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 136, 0.1);
 }
 
-/* Imagen con efecto de escala */
-.card img {
+/* 5. AJUSTE DE IMÁGENES (Solución al problema de tamaño) */
+/* Contenedor para que la imagen no se escape y tenga zoom interno */
+.card-img-container {
   width: 100%;
-  border-radius: 16px;
+  height: 180px; /* Altura fija para el contenedor de la imagen */
+  border-radius: 12px;
+  overflow: hidden; /* Recorta el zoom */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2); /* Fondo sutil para la imagen */
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ajusta la imagen sin deformarla */
   transition: var(--transition-smooth);
   filter: grayscale(20%); /* Look minimalista */
 }
 
 .card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.1); /* Zoom sutil y elegante al pasar el mouse */
   filter: grayscale(0%);
 }
 
-/* 5. TIPOGRAFÍA REFINADA */
+/* 6. TIPOGRAFÍA REFINADA */
 .card h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* Ligeramente más pequeño */
   font-weight: 600;
-  margin: 20px 0 8px;
+  margin: 10px 0 5px;
   letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .card .precio {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #00ff88;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-/* 6. BOTÓN CALL-TO-ACTION (Premium) */
+/* 7. BOTÓN CALL-TO-ACTION (Premium) */
 button {
   background: var(--accent-gradient);
   color: #000;
   border: none;
-  padding: 14px 24px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 10px;
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.85rem; /* Un poco más compacto */
   cursor: pointer;
   transition: var(--transition-smooth);
   box-shadow: 0 4px 15px var(--accent-glow);
   text-transform: uppercase;
   letter-spacing: 1px;
+  width: 100%; /* Botón ancho completo dentro de la tarjeta */
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   box-shadow: 0 8px 25px var(--accent-glow);
   filter: brightness(1.1);
 }
 
-/* 7. CARRITO (Panel Lateral Estilo Dashboard) */
+/* 8. CARRITO (Panel Lateral Estilo Dashboard) */
 #carrito {
   background: rgba(10, 10, 10, 0.8);
   border-left: 1px solid var(--border-glass);
