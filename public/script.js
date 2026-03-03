@@ -13,11 +13,11 @@ const productos = [
     nombre: "Jordan 1 Retro",
     precio: 180,
     imagen: "https://static.nike.com/a/images/t_PDP_864_v1/jordan-1-retro-high-og-shoes.png"
-     },
-  {
-    name: "Jordan 4 Retro",
-    price: "$220",
-    image: "/images/jordan4.jpg"
+    
+     
+    
+    
+    
   },
   {
     name: "Yeezy Boost 350",
