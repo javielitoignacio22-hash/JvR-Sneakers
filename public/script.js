@@ -2,7 +2,7 @@ const productos = [
   {
     nombre: "Nike Air Force 1",
     precio: 120,
-    imagen: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,q_auto:eco/air-force-1-07-shoes-WrLlWX.png"
+    imagen: "nike1.png"
   },
   {
     nombre: "Adidas Campus",
