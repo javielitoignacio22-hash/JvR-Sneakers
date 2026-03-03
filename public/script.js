@@ -2,7 +2,7 @@ const productos = [
   {
     nombre: "Nike Air Force 1",
     precio: 120,
-    imagen: "nike1.png"
+    imagen: "nike1.jpg"
   },
   {
     nombre: "Adidas Campus",
@@ -13,6 +13,21 @@ const productos = [
     nombre: "Jordan 1 Retro",
     precio: 180,
     imagen: "https://static.nike.com/a/images/t_PDP_864_v1/jordan-1-retro-high-og-shoes.png"
+     },
+  {
+    name: "Jordan 4 Retro",
+    price: "$220",
+    image: "/images/jordan4.jpg"
+  },
+  {
+    name: "Yeezy Boost 350",
+    price: "$250",
+    image: "/images/yeezy350.jpg"
+  },
+  {
+    name: "Nike Dunk Low Panda",
+    price: "$150",
+    image: "/images/dunkpanda.jpg"
   }
 ];
 
